@@ -5,8 +5,6 @@ import 'package:applemusicui/widgets/volume_control.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class NowPlaying extends StatelessWidget {
   const NowPlaying({super.key});
@@ -19,8 +17,8 @@ class NowPlaying extends StatelessWidget {
       value: const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
       child: CupertinoPageScaffold(
           child: Container(
-            //height: screenHeight,
-        decoration:  BoxDecoration(
+        //height: screenHeight,
+        decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -30,7 +28,6 @@ class NowPlaying extends StatelessWidget {
             ],
           ),
         ),
-        
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -38,20 +35,23 @@ class NowPlaying extends StatelessWidget {
             SizedBox(
               height: screenHeight * 0.003,
             ),
-            Icon(Icons.horizontal_rule_rounded, color: Colors.white38, size: screenWidth*0.11,),
+            Icon(
+              Icons.horizontal_rule_rounded,
+              color: Colors.white38,
+              size: screenWidth * 0.11,
+            ),
             Padding(
-              padding: const EdgeInsets.only(left:22.0, right: 22, bottom: 12),
+              padding: const EdgeInsets.only(left: 22.0, right: 22, bottom: 12),
               child: Material(
                 elevation: 30,
                 borderRadius: BorderRadius.circular(12),
-                
                 child: AspectRatio(
-                  aspectRatio: 1/1,
+                  aspectRatio: 1 / 1,
                   child: Container(
-                    
                     decoration: BoxDecoration(
                       image: const DecorationImage(
-                          image: AssetImage('assets/hold.jpg'), fit: BoxFit.cover),
+                          image: AssetImage('assets/hold.jpg'),
+                          fit: BoxFit.cover),
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
@@ -70,19 +70,18 @@ class NowPlaying extends StatelessWidget {
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
-                              fontSize: screenWidth*0.048)),
+                              fontSize: screenWidth * 0.048)),
                       const SizedBox(
                         height: 0,
                       ),
                       Text(
                         'Fall Out Boy',
-                        style: TextStyle(color: Colors.white70, fontSize: screenWidth*0.045),
+                        style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: screenWidth * 0.045),
                       )
                     ],
                   ),
-                  // SizedBox(
-                  //   height: screenHeight * 0.1,
-                  // ),
                   CupertinoButton(
                       padding: EdgeInsets.zero,
                       child: CircleAvatar(
@@ -102,20 +101,34 @@ class NowPlaying extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Material(
                 color: Colors.transparent,
-                child: SeekBar(screenHeight: screenHeight, screenWidth: screenWidth,),
+                child: SeekBar(
+                  screenHeight: screenHeight,
+                  screenWidth: screenWidth,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 70.0),
-              child: ControlButtons(screenHeight: screenHeight, screenWidth: screenWidth,),
+              child: ControlButtons(
+                screenHeight: screenHeight,
+                screenWidth: screenWidth,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Material(color: Colors.transparent, child: VolumeControl(screenHeight: screenHeight, screenWidth: screenWidth,)),
+              child: Material(
+                  color: Colors.transparent,
+                  child: VolumeControl(
+                    screenHeight: screenHeight,
+                    screenWidth: screenWidth,
+                  )),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 70.0),
-              child: AdditionalButtons(screenHeight: screenHeight, screenWidth: screenWidth,),
+              child: AdditionalButtons(
+                screenHeight: screenHeight,
+                screenWidth: screenWidth,
+              ),
             ),
           ],
         ),
